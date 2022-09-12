@@ -1,9 +1,14 @@
-.arda {
+.div {
     padding: 16px;
     border: 2px solid black;
 }
 
-.kaan {
+.div2 {
     padding: 16px;
     border: 2px solid red;
+}
+
+.div3 {
+    padding: 16px;
+    border: 2px solid blue;
 }
