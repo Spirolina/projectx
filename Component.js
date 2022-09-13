@@ -2,11 +2,11 @@ class Component {
     constructor(parent, props, className) {
 
         this._parent = parent
-        this.childComp;
         this.props = props;
         this.className = className;
         this.isMounted = false;
         this.children = []
+        this.nodes = []
         if (parent !== 'root') {
             let tempChildren = [...parent.children, this]
             parent.children = tempChildren;
@@ -19,6 +19,7 @@ class Component {
 
     set state(newState) {
         this._state = newState;
+        
         this.update()
     }
 
@@ -32,9 +33,15 @@ class Component {
 
 
     build() {
-        console.log('build' + this.className)
         const div = document.createElement('div');
-
+        if (this._state) {
+            const node = {
+                reference: this._state.a,
+                node : document.createTextNode(this._state.a)
+            }
+            this.nodes.push(node)
+        }
+        
         if (this.className) {
             div.className = this.className;
         }
